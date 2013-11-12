@@ -42,17 +42,14 @@ public class Lab3 {
             while (line != null) {
                 Map<Integer, String> elements = new HashMap<>();
                 while ((lineCounter % 9) != 0) { //set mod compare to 9 to allow the element indexs to begin at 1
-                    elements.put(lineCounter, line);
-                    line = in.readLine();
+                    elements.put(lineCounter, line);//if you were to use an index of 0,  0 mod n will be 0 causing a logic error
+                    line = in.readLine();           //possible workaround is to subtract 1 after the mod comparison
                     lineCounter++;
                 }
                 lineCounter = 1;
 
                 records.add(recordCounter, elements);
                 recordCounter++;
-
-
-
 
             }
             for (int x = 0; x < records.size(); x++) {
@@ -82,8 +79,7 @@ public class Lab3 {
                 System.out.println("INVALID RECORD");
                 System.out.println("Enter a record number(-1 to escape):");
                 recordNum = keyboard.nextInt();
-           
-            
+                       
             }}
         }
         
